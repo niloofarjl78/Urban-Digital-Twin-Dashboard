@@ -1,0 +1,1 @@
+var json_lavazza_building_geo_4326_1 = {"type":"FeatureCollection","name":"lavazza_building_geo_4326_1","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[]}
