@@ -8,848 +8,1032 @@
 
   <style>
     :root {
-      --navy: #0b1220;
-      --blue: #2563eb;
-      --cyan: #06b6d4;
-      --green: #16a34a;
-      --orange: #f59e0b;
-      --purple: #7c3aed;
-      --bg: #f4f7fb;
-      --card: #ffffff;
-      --text: #0f172a;
-      --muted: #64748b;
-      --line: #e2e8f0;
-      --soft-blue: #eff6ff;
-      --soft-green: #ecfdf5;
-      --soft-orange: #fff7ed;
-      --soft-purple: #f5f3ff;
-      --shadow: 0 16px 40px rgba(15, 23, 42, 0.10);
-      --radius: 22px;
+      --navy:#071426;
+      --blue:#2563eb;
+      --cyan:#0891b2;
+      --green:#16a34a;
+      --orange:#f59e0b;
+      --purple:#7c3aed;
+      --red:#dc2626;
+      --bg:#f3f7fb;
+      --card:#ffffff;
+      --text:#0f172a;
+      --muted:#64748b;
+      --line:#dbe4ef;
+      --soft-blue:#eff6ff;
+      --soft-green:#ecfdf5;
+      --soft-orange:#fff7ed;
+      --soft-purple:#f5f3ff;
+      --shadow:0 18px 45px rgba(15,23,42,.10);
+      --radius:22px;
     }
 
-    * { box-sizing: border-box; }
+    * { box-sizing:border-box; }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior:smooth; }
 
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
     }
 
     .container {
-      width: min(1220px, 92%);
-      margin: 0 auto;
+      width:min(1240px,92%);
+      margin:0 auto;
     }
 
     .hero {
       background:
-        radial-gradient(circle at top right, rgba(37, 99, 235, 0.20), transparent 32%),
-        radial-gradient(circle at bottom left, rgba(6, 182, 212, 0.14), transparent 28%),
-        linear-gradient(135deg, #ffffff 0%, #eef6ff 100%);
-      border-bottom: 1px solid var(--line);
+        radial-gradient(circle at 88% 10%, rgba(37,99,235,.22), transparent 32%),
+        radial-gradient(circle at 10% 80%, rgba(22,163,74,.12), transparent 28%),
+        linear-gradient(135deg,#ffffff 0%,#eef6ff 100%);
+      border-bottom:1px solid var(--line);
     }
 
     .hero-inner {
-      padding: 78px 0 58px;
-      display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap: 32px;
-      align-items: center;
+      padding:78px 0 58px;
+      display:grid;
+      grid-template-columns:1.25fr .75fr;
+      gap:34px;
+      align-items:center;
     }
 
     .eyebrow {
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--blue);
-      background: var(--soft-blue);
-      padding: 8px 13px;
-      border-radius: 999px;
-      margin-bottom: 18px;
+      display:inline-block;
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:var(--blue);
+      background:var(--soft-blue);
+      padding:8px 13px;
+      border-radius:999px;
+      margin-bottom:18px;
     }
 
     h1 {
-      margin: 0 0 16px;
-      font-size: clamp(2.2rem, 5vw, 3.6rem);
-      line-height: 1.05;
-      letter-spacing: -0.04em;
-      color: var(--navy);
+      margin:0 0 16px;
+      font-size:clamp(2.15rem,5vw,3.65rem);
+      line-height:1.04;
+      letter-spacing:-.045em;
+      color:var(--navy);
     }
 
     h2 {
-      margin: 0 0 12px;
-      font-size: 1.55rem;
-      color: var(--navy);
+      margin:0 0 12px;
+      font-size:1.6rem;
+      color:var(--navy);
     }
 
     h3 {
-      margin: 0 0 10px;
-      font-size: 1.05rem;
-      color: var(--navy);
+      margin:0 0 10px;
+      font-size:1.05rem;
+      color:var(--navy);
     }
 
     p {
-      margin: 0 0 12px;
-      color: var(--muted);
+      margin:0 0 12px;
+      color:var(--muted);
     }
 
     .hero p {
-      max-width: 820px;
-      font-size: 1.05rem;
+      font-size:1.05rem;
+      max-width:850px;
     }
 
     .hero-panel {
-      background: rgba(255,255,255,0.92);
-      border: 1px solid var(--line);
-      border-radius: 26px;
-      box-shadow: var(--shadow);
-      padding: 24px;
+      background:rgba(255,255,255,.94);
+      border:1px solid var(--line);
+      border-radius:28px;
+      box-shadow:var(--shadow);
+      padding:24px;
     }
 
     .hero-panel ul {
-      margin: 0;
-      padding-left: 18px;
-      color: var(--muted);
+      margin:0;
+      padding-left:18px;
+      color:var(--muted);
     }
 
-    .hero-panel li + li { margin-top: 8px; }
+    .hero-panel li + li { margin-top:8px; }
 
     .nav-tabs-wrap {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(244, 247, 251, 0.94);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(243,247,251,.95);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);
     }
 
     .tabs {
-      display: flex;
-      gap: 10px;
-      overflow-x: auto;
-      padding: 14px 0;
+      display:flex;
+      gap:10px;
+      overflow-x:auto;
+      padding:14px 0;
     }
 
     .tab-btn {
-      border: 1px solid var(--line);
-      background: white;
-      color: var(--muted);
-      padding: 10px 14px;
-      border-radius: 999px;
-      font-weight: 800;
-      cursor: pointer;
-      white-space: nowrap;
+      border:1px solid var(--line);
+      background:#fff;
+      color:var(--muted);
+      padding:10px 14px;
+      border-radius:999px;
+      font-weight:900;
+      cursor:pointer;
+      white-space:nowrap;
     }
 
     .tab-btn.active {
-      background: var(--navy);
-      color: white;
-      border-color: var(--navy);
+      background:var(--navy);
+      color:white;
+      border-color:var(--navy);
     }
 
-    .tab-panel { display: none; padding: 34px 0; }
-    .tab-panel.active { display: block; }
+    .tab-panel { display:none; padding:34px 0; }
+    .tab-panel.active { display:block; }
 
     .section-label {
-      color: var(--blue);
-      font-weight: 800;
-      font-size: 0.82rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 6px;
+      color:var(--blue);
+      font-weight:900;
+      font-size:.82rem;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      margin-bottom:6px;
     }
 
     .section-intro {
-      max-width: 900px;
-      font-size: 1rem;
-      margin-bottom: 20px;
+      max-width:930px;
+      font-size:1rem;
+      margin-bottom:22px;
     }
 
     .metrics {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-      margin-top: 18px;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+      margin-top:18px;
     }
 
     .metric {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 24px;
-      position: relative;
-      overflow: hidden;
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:24px;
+      position:relative;
+      overflow:hidden;
     }
 
     .metric:before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 5px;
-      width: 100%;
-      background: var(--blue);
+      content:"";
+      position:absolute;
+      inset:0 auto auto 0;
+      width:100%;
+      height:5px;
+      background:var(--blue);
     }
 
-    .metric.green:before { background: var(--green); }
-    .metric.orange:before { background: var(--orange); }
-    .metric.purple:before { background: var(--purple); }
+    .metric.green:before { background:var(--green); }
+    .metric.orange:before { background:var(--orange); }
+    .metric.purple:before { background:var(--purple); }
 
     .metric-value {
-      font-size: 2rem;
-      font-weight: 900;
-      color: var(--navy);
-      line-height: 1;
-      margin-bottom: 9px;
+      font-size:2rem;
+      font-weight:950;
+      color:var(--navy);
+      line-height:1;
+      margin-bottom:9px;
     }
 
     .metric-label {
-      color: var(--muted);
-      font-size: 0.95rem;
+      color:var(--muted);
+      font-size:.95rem;
     }
 
     .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
     }
 
     .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
     }
 
     .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow: hidden;
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
     }
 
     .card-head {
-      padding: 16px 20px;
-      border-bottom: 1px solid var(--line);
-      background: #fbfcfe;
-      font-weight: 900;
-      color: var(--navy);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
+      padding:16px 20px;
+      border-bottom:1px solid var(--line);
+      background:#fbfcfe;
+      font-weight:950;
+      color:var(--navy);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
     }
 
-    .card-body { padding: 20px; }
+    .card-body { padding:20px; }
 
     .pill {
-      display: inline-block;
-      padding: 5px 9px;
-      border-radius: 999px;
-      background: var(--soft-blue);
-      color: var(--blue);
-      font-size: 12px;
-      font-weight: 900;
+      display:inline-block;
+      padding:5px 9px;
+      border-radius:999px;
+      background:var(--soft-blue);
+      color:var(--blue);
+      font-size:12px;
+      font-weight:950;
     }
 
-    .pill.green { background: var(--soft-green); color: var(--green); }
-    .pill.orange { background: var(--soft-orange); color: var(--orange); }
-    .pill.purple { background: var(--soft-purple); color: var(--purple); }
+    .pill.green { background:var(--soft-green); color:var(--green); }
+    .pill.orange { background:var(--soft-orange); color:var(--orange); }
+    .pill.purple { background:var(--soft-purple); color:var(--purple); }
 
     .mini-list {
-      margin: 0;
-      padding-left: 18px;
-      color: var(--muted);
+      margin:0;
+      padding-left:18px;
+      color:var(--muted);
     }
 
-    .mini-list li + li { margin-top: 8px; }
+    .mini-list li + li { margin-top:8px; }
 
     .chart-box {
-      min-height: 370px;
-      background: white;
-      padding: 8px;
+      min-height:370px;
+      background:#fff;
+      padding:8px;
     }
 
     iframe {
-      width: 100%;
-      height: 440px;
-      border: 0;
-      display: block;
-      background: white;
+      width:100%;
+      height:445px;
+      border:0;
+      display:block;
+      background:#fff;
     }
 
-    .small-frame { height: 400px; }
+    .small-frame { height:405px; }
+
+    .large-frame { height:560px; }
 
     .map-note {
-      padding: 14px 18px 18px;
-      color: var(--muted);
-      font-size: 0.94rem;
-      background: white;
-      border-top: 1px solid var(--line);
+      padding:14px 18px 18px;
+      color:var(--muted);
+      font-size:.94rem;
+      background:#fff;
+      border-top:1px solid var(--line);
     }
 
     .workflow {
-      display: grid;
-      gap: 14px;
+      display:grid;
+      grid-template-columns:repeat(6,1fr);
+      gap:12px;
+      margin-top:18px;
     }
 
+    .workflow-step {
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:16px;
+      box-shadow:0 8px 24px rgba(15,23,42,.06);
+      min-height:150px;
+    }
+
+    .num {
+      width:34px;
+      height:34px;
+      border-radius:999px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:var(--blue);
+      color:white;
+      font-weight:950;
+      margin-bottom:10px;
+    }
+
+    .workflow-step:nth-child(2) .num { background:var(--cyan); }
+    .workflow-step:nth-child(3) .num { background:var(--purple); }
+    .workflow-step:nth-child(4) .num { background:var(--orange); }
+    .workflow-step:nth-child(5) .num { background:var(--green); }
+    .workflow-step:nth-child(6) .num { background:var(--navy); }
+
     .step {
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 15px 16px;
-      background: #fbfcfe;
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:15px 16px;
+      background:#fbfcfe;
+      margin-bottom:12px;
     }
 
     .step strong {
-      display: block;
-      margin-bottom: 5px;
-      color: var(--navy);
+      display:block;
+      margin-bottom:5px;
+      color:var(--navy);
     }
 
-    .fiware-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 18px;
-      padding: 10px 0;
-    }
-
-    .fiware-box {
-      background: #f8fafc;
-      border: 1px solid var(--line);
-      border-radius: 15px;
-      padding: 12px;
-      min-width: 108px;
-      text-align: center;
-      font-size: 13px;
-      color: var(--text);
-    }
-
-    .fiware-box.main {
-      background: var(--navy);
-      color: white;
-      font-weight: 900;
-      min-width: 190px;
-      box-shadow: 0 12px 25px rgba(15, 23, 42, 0.18);
-    }
-
-    .fiware-parts {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-    }
-
-    .fiware-box.tower {
-      background: var(--blue);
-      color: white;
-      font-weight: 900;
-    }
-
-    .sql-box,
-    .code-block {
-      background: var(--navy);
-      color: #e2e8f0;
-      padding: 18px;
-      border-radius: 18px;
-      overflow: auto;
-      font-size: 12px;
-      line-height: 1.55;
-      margin: 0;
-      white-space: pre-wrap;
-    }
-
-    .before-after {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
-    .compare-box {
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 22px;
-    }
-
-    .compare-box.before { border-top: 6px solid var(--orange); }
-    .compare-box.after { border-top: 6px solid var(--green); }
-
-    .compare-box ul {
-      margin: 0;
-      padding-left: 18px;
-      color: var(--muted);
-    }
-
-    .compare-box li + li { margin-top: 8px; }
-
-    .table-wrap { overflow-x: auto; }
+    .table-wrap { overflow-x:auto; }
 
     table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.94rem;
+      width:100%;
+      border-collapse:collapse;
+      font-size:.94rem;
     }
 
     th, td {
-      border: 1px solid var(--line);
-      padding: 11px 12px;
-      text-align: left;
-      vertical-align: top;
+      border:1px solid var(--line);
+      padding:11px 12px;
+      text-align:left;
+      vertical-align:top;
     }
 
     th {
-      background: #f8fafc;
-      color: var(--navy);
+      background:#f8fafc;
+      color:var(--navy);
+    }
+
+    .code-block,
+    .sql-box {
+      background:var(--navy);
+      color:#e2e8f0;
+      padding:18px;
+      border-radius:18px;
+      overflow:auto;
+      font-size:12px;
+      line-height:1.55;
+      margin:0;
+      white-space:pre-wrap;
+    }
+
+    .before-after {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+    }
+
+    .compare-box {
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:22px;
+    }
+
+    .compare-box.before { border-top:6px solid var(--orange); }
+    .compare-box.after { border-top:6px solid var(--green); }
+
+    .compare-box ul {
+      margin:0;
+      padding-left:18px;
+      color:var(--muted);
+    }
+
+    .compare-box li + li { margin-top:8px; }
+
+    .entity-diagram {
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:18px;
+      padding:12px 0;
+    }
+
+    .entity-main {
+      background:var(--navy);
+      color:white;
+      padding:14px 18px;
+      border-radius:16px;
+      font-weight:950;
+      text-align:center;
+      box-shadow:0 12px 28px rgba(15,23,42,.18);
+    }
+
+    .entity-parts {
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:center;
+    }
+
+    .entity-part {
+      min-width:110px;
+      padding:12px;
+      border:1px solid var(--line);
+      border-radius:15px;
+      background:#f8fafc;
+      text-align:center;
+      font-size:13px;
+    }
+
+    .entity-part.tower {
+      background:var(--blue);
+      color:#fff;
+      font-weight:900;
     }
 
     .footer {
-      padding: 34px 0 54px;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.95rem;
+      padding:34px 0 54px;
+      text-align:center;
+      color:var(--muted);
+      font-size:.95rem;
     }
 
-    @media (max-width: 1100px) {
+    @media(max-width:1150px) {
       .hero-inner,
       .metrics,
       .grid-2,
       .grid-3,
-      .before-after {
-        grid-template-columns: 1fr;
+      .before-after,
+      .workflow {
+        grid-template-columns:1fr;
       }
 
-      iframe, .small-frame { height: 370px; }
+      iframe,
+      .small-frame,
+      .large-frame {
+        height:380px;
+      }
     }
 
-    @media (max-width: 720px) {
-      .hero-inner { padding: 56px 0 38px; }
-      .tab-panel { padding: 26px 0; }
-      .metric, .card-body, .card-head { padding: 16px; }
+    @media(max-width:720px) {
+      .hero-inner { padding:56px 0 38px; }
+      .tab-panel { padding:26px 0; }
+      .metric,
+      .card-body,
+      .card-head { padding:16px; }
     }
   </style>
 </head>
 
 <body>
 
-  <section class="hero">
-    <div class="container hero-inner">
-      <div>
-        <div class="eyebrow">Master’s thesis research</div>
-        <h1>Assessing Municipal Building Data for Urban Digital Twin Readiness</h1>
-        <p>
-          This thesis investigates whether an existing authoritative municipal building dataset can support the requirements of 3D city modelling and Urban Digital Twin frameworks.
-        </p>
-        <p>
-          The research focuses on the CSI building dataset of Turin, with Circoscrizione 7 as the study area and the Lavazza building as a detailed object-level case study. The work evaluates geometric completeness, height availability, Level of Detail potential, semantic structure, and interoperability limitations.
-        </p>
-      </div>
+<section class="hero">
+  <div class="container hero-inner">
+    <div>
+      <div class="eyebrow">Master’s thesis research output</div>
+      <h1>Assessing Municipal Building Data for Urban Digital Twin Readiness</h1>
+      <p>
+        This research evaluates whether existing municipal GIS building data can support a transformation path toward 3D city modelling, spatial database representation, and future Urban Digital Twin interoperability.
+      </p>
+      <p>
+        The workflow moves from institutional geodata context to QGIS-based readiness assessment, Building/BuildingPart reconstruction, PostGIS relational storage, GeoJSON and NGSI-LD-style outputs, and interactive 3D visualization.
+      </p>
+    </div>
 
-      <div class="hero-panel">
-        <h3>Research contribution</h3>
-        <ul>
-          <li>Dataset-level assessment of height availability and 3D readiness.</li>
-          <li>Object-level validation using the Lavazza building case study.</li>
-          <li>Identification of fragmentation and weak entity relationships.</li>
-          <li>FIWARE-inspired restructuring from GIS layers to Building + BuildingPart entities.</li>
+    <div class="hero-panel">
+      <h3>Main contribution</h3>
+      <ul>
+        <li>Multi-scale dataset-readiness assessment.</li>
+        <li>QGIS processing and 3D validation of municipal building data.</li>
+        <li>Building/BuildingPart reconstruction of fragmented geometries.</li>
+        <li>PostGIS relational prototype for queryable and scalable output.</li>
+        <li>GeoJSON and NGSI-LD-style export for future UDT interoperability.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="nav-tabs-wrap">
+  <div class="container">
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="overview">Overview</button>
+      <button class="tab-btn" data-tab="workflow">Transformation Path</button>
+      <button class="tab-btn" data-tab="data">Data & Scales</button>
+      <button class="tab-btn" data-tab="validation">Validation</button>
+      <button class="tab-btn" data-tab="postgis">PostGIS / SQL</button>
+      <button class="tab-btn" data-tab="outputs">Maps & 3D Outputs</button>
+      <button class="tab-btn" data-tab="fiware">GeoJSON / NGSI-LD</button>
+      <button class="tab-btn" data-tab="findings">Findings</button>
+    </div>
+  </div>
+</div>
+
+<main class="container">
+
+<section class="tab-panel active" id="overview">
+  <div class="section-label">Research overview</div>
+  <h2>From data availability to dataset readiness</h2>
+  <p class="section-intro">
+    The dashboard communicates the final outputs of the thesis. It does not replace the written analysis; it supports the thesis by making the workflow, maps, database logic, and 3D reconstruction inspectable.
+  </p>
+
+  <div class="metrics">
+    <div class="metric">
+      <div class="metric-value">17,565</div>
+      <div class="metric-label">Volumetric units evaluated in the district-scale dataset</div>
+    </div>
+    <div class="metric green">
+      <div class="metric-value">81%</div>
+      <div class="metric-label">Features with usable height information for LoD1-like modelling</div>
+    </div>
+    <div class="metric orange">
+      <div class="metric-value">19%</div>
+      <div class="metric-label">Features with missing, zero, or unusable height values</div>
+    </div>
+    <div class="metric purple">
+      <div class="metric-value">6</div>
+      <div class="metric-label">Lavazza BuildingPart components reconstructed from CSI data</div>
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-top:22px;">
+    <div class="card">
+      <div class="card-head">Height availability as an indicator of basic 3D readiness</div>
+      <div id="chart-readiness" class="chart-box"></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">Main building-related layers used in the analysis</div>
+      <div id="chart-layers" class="chart-box"></div>
+    </div>
+  </div>
+</section>
+
+<section class="tab-panel" id="workflow">
+  <div class="section-label">Transformation path</div>
+  <h2>Continuous standard-oriented workflow</h2>
+  <p class="section-intro">
+    The thesis output is not only a 3D model. It is a structured transformation workflow connecting GIS data, 3D city modelling logic, spatial database representation, and future UDT-oriented interoperability.
+  </p>
+
+  <div class="workflow">
+    <div class="workflow-step">
+      <div class="num">1</div>
+      <h3>Institutional context</h3>
+      <p>BDTRE and regional geodata frame provenance, coverage, and official data context.</p>
+    </div>
+
+    <div class="workflow-step">
+      <div class="num">2</div>
+      <h3>QGIS processing</h3>
+      <p>CSI layers are filtered, cleaned, inspected, and prepared for district and building analysis.</p>
+    </div>
+
+    <div class="workflow-step">
+      <div class="num">3</div>
+      <h3>3D readiness</h3>
+      <p>Height availability and LoD1-like extrusion potential are evaluated.</p>
+    </div>
+
+    <div class="workflow-step">
+      <div class="num">4</div>
+      <h3>Object reconstruction</h3>
+      <p>Fragmented polygons are reorganized as BuildingPart components of one Building.</p>
+    </div>
+
+    <div class="workflow-step">
+      <div class="num">5</div>
+      <h3>PostGIS model</h3>
+      <p>The reconstructed structure is stored as queryable relational spatial tables.</p>
+    </div>
+
+    <div class="workflow-step">
+      <div class="num">6</div>
+      <h3>UDT outputs</h3>
+      <p>GeoJSON, NGSI-LD-style JSON, and interactive 3D outputs communicate the result.</p>
+    </div>
+  </div>
+</section>
+
+<section class="tab-panel" id="data">
+  <div class="section-label">Data sources and scale logic</div>
+  <h2>Multi-scale case-study structure</h2>
+  <p class="section-intro">
+    The work is organized across scales: regional/institutional context, city framing, district evaluation, building reconstruction, and database/output representation.
+  </p>
+
+  <div class="card">
+    <div class="card-head">Multi-scale role of datasets and outputs</div>
+    <div class="card-body table-wrap">
+      <table>
+        <tr>
+          <th>Scale</th>
+          <th>Dataset / output</th>
+          <th>Purpose</th>
+          <th>Standard-oriented role</th>
+        </tr>
+        <tr>
+          <td>Regional / institutional</td>
+          <td>BDTRE and regional geodata</td>
+          <td>Data provenance and territorial reference</td>
+          <td>INSPIRE / SDI context</td>
+        </tr>
+        <tr>
+          <td>City</td>
+          <td>BDTRE, municipal boundaries, contextual layers</td>
+          <td>Urban framing and case-study location</td>
+          <td>City model context</td>
+        </tr>
+        <tr>
+          <td>District</td>
+          <td>CSI edificato subset</td>
+          <td>Readiness evaluation and height statistics</td>
+          <td>CityGML / CityJSON object-readiness logic</td>
+        </tr>
+        <tr>
+          <td>Building</td>
+          <td>Extracted CSI components</td>
+          <td>Building/BuildingPart reconstruction</td>
+          <td>LoD and object hierarchy interpretation</td>
+        </tr>
+        <tr>
+          <td>Database / output</td>
+          <td>PostGIS, GeoJSON, NGSI-LD JSON</td>
+          <td>Queryability, export, and interoperability</td>
+          <td>Spatial database and future UDT logic</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:22px;">
+    <div class="card-head">Main CSI layers used in the workflow</div>
+    <div class="card-body table-wrap">
+      <table>
+        <tr>
+          <th>Layer</th>
+          <th>Role</th>
+          <th>Relevance</th>
+        </tr>
+        <tr><td>020101_UNITA_VOLUMETRICA</td><td>Primary analytical layer</td><td>Geometry, height, LoD1 extrusion potential</td></tr>
+        <tr><td>020102_EDIFICIO</td><td>Building-level support</td><td>Semantic interpretation and object identity</td></tr>
+        <tr><td>020106_EDIFICIO_MINORE</td><td>Minor building support</td><td>Built-environment completeness</td></tr>
+        <tr><td>020104_ELEMENTO_DI_COPERTURA</td><td>Roof / covering support</td><td>Possible LoD2 discussion</td></tr>
+        <tr><td>020105_PARTICOLARE_ARCHITETTONICO</td><td>Architectural detail support</td><td>Semantic richness and higher-LoD limitation</td></tr>
+        <tr><td>090111_SUDDIVISIONE_SUB-COMUNALE</td><td>Boundary layer</td><td>Spatial delimitation and scalability</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="tab-panel" id="validation">
+  <div class="section-label">Methodological validation</div>
+  <h2>Control parameters and consistency checks</h2>
+  <p class="section-intro">
+    The workflow is validated by checking whether the same reconstructed fields can support QGIS visualization, PostGIS storage, SQL queries, GeoJSON export, NGSI-LD-style output, and interactive 3D inspection.
+  </p>
+
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-head">Geometric completeness <span class="pill">LoD1</span></div>
+      <div class="card-body">
+        <ul class="mini-list">
+          <li>Geometry validity</li>
+          <li>height_m creation</li>
+          <li>has_height indicator</li>
+          <li>3D extrusion potential</li>
         </ul>
       </div>
     </div>
-  </section>
 
-  <div class="nav-tabs-wrap">
-    <div class="container">
-      <div class="tabs">
-        <button class="tab-btn active" data-tab="overview">Overview</button>
-        <button class="tab-btn" data-tab="methodology">Methodology</button>
-        <button class="tab-btn" data-tab="maps">Maps & 3D Models</button>
-        <button class="tab-btn" data-tab="case-study">Lavazza Case Study</button>
-        <button class="tab-btn" data-tab="fiware">FIWARE Design</button>
-        <button class="tab-btn" data-tab="findings">Findings</button>
+    <div class="card">
+      <div class="card-head">Semantic richness <span class="pill green">Attributes</span></div>
+      <div class="card-body">
+        <ul class="mini-list">
+          <li>part_type classification</li>
+          <li>number of floors</li>
+          <li>component interpretation</li>
+          <li>LoD potential</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">Interoperability <span class="pill purple">Relations</span></div>
+      <div class="card-body">
+        <ul class="mini-list">
+          <li>building_id</li>
+          <li>part_id</li>
+          <li>partOf relationship</li>
+          <li>NGSI-LD-style identifiers</li>
+        </ul>
       </div>
     </div>
   </div>
 
-  <main class="container">
+  <div class="card" style="margin-top:22px;">
+    <div class="card-head">Control parameters used during validation</div>
+    <div class="card-body table-wrap">
+      <table>
+        <tr>
+          <th>Control parameter</th>
+          <th>Purpose</th>
+          <th>Output level</th>
+        </tr>
+        <tr><td>Geometry validity</td><td>Checks whether spatial features can be processed reliably.</td><td>Dataset / district / building</td></tr>
+        <tr><td>Height availability</td><td>Assesses LoD1-like extrusion potential.</td><td>District / building</td></tr>
+        <tr><td>Object coherence</td><td>Tests whether multiple polygons can represent one real building.</td><td>Building</td></tr>
+        <tr><td>Identifier consistency</td><td>Ensures building_id and part_id are clear and non-ambiguous.</td><td>Building / database</td></tr>
+        <tr><td>Relationship consistency</td><td>Verifies parent-child logic through partOf and foreign key.</td><td>PostGIS</td></tr>
+        <tr><td>Exportability</td><td>Tests GeoJSON and NGSI-LD-style output generation.</td><td>Web / UDT output</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
 
-    <section class="tab-panel active" id="overview">
-      <div class="section-label">Project overview</div>
-      <h2>Dataset readiness for 3D modelling and Urban Digital Twins</h2>
-      <p class="section-intro">
-        The project combines quantitative indicators, GIS-based visual validation, and conceptual data restructuring to understand whether the dataset can move from traditional mapping toward Urban Digital Twin use.
-      </p>
+<section class="tab-panel" id="postgis">
+  <div class="section-label">Database representation</div>
+  <h2>PostGIS relational prototype</h2>
+  <p class="section-intro">
+    PostGIS is used to demonstrate that the reconstructed Building/BuildingPart logic can be stored as a spatial relational model, queried, related, and exported.
+  </p>
 
-      <div class="metrics">
-        <div class="metric">
-          <div class="metric-value">17,565</div>
-          <div class="metric-label">Volumetric units analyzed in Circoscrizione 7</div>
-        </div>
-        <div class="metric green">
-          <div class="metric-value">81%</div>
-          <div class="metric-label">Features with usable height information</div>
-        </div>
-        <div class="metric orange">
-          <div class="metric-value">19%</div>
-          <div class="metric-label">Features with missing or zero height values</div>
-        </div>
-        <div class="metric purple">
-          <div class="metric-value">6</div>
-          <div class="metric-label">Lavazza volumetric units modeled as BuildingParts</div>
-        </div>
-      </div>
-
-      <div class="grid-2" style="margin-top:22px;">
-        <div class="card">
-          <div class="card-head">Height availability as an indicator of basic 3D readiness</div>
-          <div id="chart-readiness" class="chart-box"></div>
-        </div>
-
-        <div class="card">
-          <div class="card-head">Main building-related layers used in the analysis</div>
-          <div id="chart-layers" class="chart-box"></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="tab-panel" id="methodology">
-      <div class="section-label">Methodological workflow</div>
-      <h2>From GIS inspection to UDT-oriented restructuring</h2>
-      <p class="section-intro">
-        The workflow tests the dataset at two scales: the full Circoscrizione 7 dataset and the Lavazza building as a detailed case study.
-      </p>
-
-      <div class="grid-3">
-        <div class="card">
-          <div class="card-head">1. Data preparation <span class="pill">QGIS</span></div>
-          <div class="card-body">
-            <ul class="mini-list">
-              <li>Inspection of CSI building layers</li>
-              <li>Filtering of Circoscrizione 7</li>
-              <li>Creation of height and quality indicators</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-head">2. Model validation <span class="pill green">3D</span></div>
-          <div class="card-body">
-            <ul class="mini-list">
-              <li>2D height map generation</li>
-              <li>3D extrusion using height attributes</li>
-              <li>Consistency checks of geometry and height values</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-head">3. Entity restructuring <span class="pill purple">FIWARE</span></div>
-          <div class="card-body">
-            <ul class="mini-list">
-              <li>Building entity definition</li>
-              <li>BuildingPart entities for volumetric units</li>
-              <li>Explicit hasPart relationship</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="tab-panel" id="maps">
-      <div class="section-label">Interactive outputs</div>
-      <h2>2D and 3D visual validation</h2>
-      <p class="section-intro">
-        These outputs are used to visually test the behaviour of the dataset and to identify limitations in height completeness, 3D extrusion, and object-level representation.
-      </p>
-
-      <div class="grid-2">
-        <div class="card">
-          <div class="card-head">Whole Circoscrizione 7 — 2D map</div>
-          <iframe class="small-frame" src="interactive/c7_map/index.html"></iframe>
-          <div class="map-note">Shows the spatial distribution and structure of building data across Circoscrizione 7.</div>
-        </div>
-
-        <div class="card">
-          <div class="card-head">Whole Circoscrizione 7 — 3D scene</div>
-          <iframe class="small-frame" src="interactive/c7_3d_scene/index.html"></iframe>
-          <div class="map-note">Highlights vertical variability and supports visual validation of 3D readiness.</div>
-        </div>
-
-        <div class="card">
-          <div class="card-head">Lavazza building — 2D map</div>
-          <iframe src="interactive/lavazza_map/index.html"></iframe>
-          <div class="map-note">Shows that the Lavazza complex is represented by multiple polygons rather than one coherent GIS object.</div>
-        </div>
-
-        <div class="card">
-          <div class="card-head">Lavazza building — 3D scene</div>
-          <iframe src="interactive/lavazza_3d_scene/index.html"></iframe>
-          <div class="map-note">Reveals internal height variation and confirms the need for a multi-part representation.</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="tab-panel" id="case-study">
-      <div class="section-label">Object-level analysis</div>
-      <h2>Lavazza building as a multi-part urban object</h2>
-      <p class="section-intro">
-        The Lavazza building demonstrates that one real-world building may be stored as several independent volumetric units with different heights and attributes.
-      </p>
-
-      <div class="grid-3">
-        <div class="card">
-          <div class="card-head">Tallest part <span class="pill">Tower</span></div>
-          <div class="card-body">
-            <h2>30.64 m</h2>
-            <p>LAV_7341, classified as the tower component with 7 floors.</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-head">Main body <span class="pill green">Main</span></div>
-          <div class="card-body">
-            <h2>14.63 m</h2>
-            <p>LAV_15145, largest surface area and main volumetric component.</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-head">Lowest part <span class="pill orange">Block</span></div>
-          <div class="card-body">
-            <h2>5.20 m</h2>
-            <p>LAV_7342, one-floor lower component.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="card" style="margin-top:22px;">
-        <div class="card-head">Lavazza BuildingParts derived from the CSI layer</div>
-        <div class="card-body table-wrap">
-          <table>
-            <tr>
-              <th>Part ID</th>
-              <th>Height</th>
-              <th>Floors</th>
-              <th>Surface area</th>
-              <th>Part type</th>
-            </tr>
-            <tr><td>LAV_1081</td><td>9.39 m</td><td>3</td><td>478.93</td><td>block</td></tr>
-            <tr><td>LAV_1082</td><td>12.74 m</td><td>2</td><td>282.58</td><td>block</td></tr>
-            <tr><td>LAV_7341</td><td>30.64 m</td><td>7</td><td>933.18</td><td>tower</td></tr>
-            <tr><td>LAV_7342</td><td>5.20 m</td><td>1</td><td>670.89</td><td>block</td></tr>
-            <tr><td>LAV_12854</td><td>5.79 m</td><td>2</td><td>393.43</td><td>block</td></tr>
-            <tr><td>LAV_15145</td><td>14.63 m</td><td>4</td><td>2895.40</td><td>main_body</td></tr>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <section class="tab-panel" id="fiware">
-      <div class="section-label">Conceptual contribution</div>
-      <h2>FIWARE-oriented entity restructuring</h2>
-      <p class="section-intro">
-        FIWARE is used as a conceptual interoperability framework. The aim is to show how fragmented GIS records can be reorganized into entities, properties, and explicit relationships.
-      </p>
-
-      <div class="grid-2">
-        <div class="card">
-          <div class="card-head">Building + BuildingPart model</div>
-          <div class="card-body">
-            <div class="fiware-container">
-              <div class="fiware-box main">Building<br>Lavazza_B1</div>
-              <div class="fiware-parts">
-                <div class="fiware-box">LAV_1081<br>9.39 m<br>block</div>
-                <div class="fiware-box">LAV_1082<br>12.74 m<br>block</div>
-                <div class="fiware-box tower">LAV_7341<br>30.64 m<br>tower</div>
-                <div class="fiware-box">LAV_7342<br>5.20 m<br>block</div>
-                <div class="fiware-box">LAV_12854<br>5.79 m<br>block</div>
-                <div class="fiware-box">LAV_15145<br>14.63 m<br>main body</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-head">Transformation logic</div>
-          <div class="card-body">
-            <div class="workflow">
-              <div class="step"><strong>1. Preserve geometric parts</strong>Do not merge polygons into one height value.</div>
-              <div class="step"><strong>2. Standardize attributes</strong>Use building_id, part_id, height_m, floors, and part_type.</div>
-              <div class="step"><strong>3. Add explicit relationships</strong>Connect all parts to Lavazza_B1 using hasPart.</div>
-              <div class="step"><strong>4. Improve UDT readiness</strong>Move from isolated shapes to a connected urban object model.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="grid-2" style="margin-top:22px;">
-        <div class="card">
-          <div class="card-head">SQL-style relational structure</div>
-          <div class="card-body">
-            <pre class="sql-box">CREATE TABLE Building (
-  building_id VARCHAR PRIMARY KEY,
-  name VARCHAR,
-  use_type VARCHAR,
-  construction_year INT
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-head">Relational schema</div>
+      <div class="card-body">
+        <pre class="sql-box">CREATE TABLE building (
+  building_id VARCHAR(50) PRIMARY KEY,
+  name VARCHAR(100),
+  building_use VARCHAR(100),
+  ngsi_entity VARCHAR(150)
 );
 
-CREATE TABLE BuildingPart (
-  part_id VARCHAR PRIMARY KEY,
-  building_id VARCHAR,
-  height_m FLOAT,
-  floors INT,
-  surface_area FLOAT,
-  part_type VARCHAR,
-  geometry GEOMETRY,
+CREATE TABLE building_part (
+  part_id VARCHAR(50) PRIMARY KEY,
+  building_id VARCHAR(50),
+  height_m NUMERIC,
+  num_floors INTEGER,
+  part_type VARCHAR(50),
+  lod_potential VARCHAR(50),
+  quality_flag VARCHAR(50),
+  ngsi_entity VARCHAR(150),
+  relationship VARCHAR(50),
+  partOf VARCHAR(150),
+  geom geometry(Polygon, 4326),
   FOREIGN KEY (building_id)
-    REFERENCES Building(building_id)
+    REFERENCES building(building_id)
 );</pre>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-head">Example NGSI-LD inspired entity</div>
-          <div class="card-body">
-            <pre class="code-block">{
-  "id": "urn:ngsi-ld:Building:Lavazza_B1",
-  "type": "Building",
-  "numberOfParts": 6,
-  "hasPart": [
-    "urn:ngsi-ld:BuildingPart:LAV_1081",
-    "urn:ngsi-ld:BuildingPart:LAV_1082",
-    "urn:ngsi-ld:BuildingPart:LAV_7341",
-    "urn:ngsi-ld:BuildingPart:LAV_7342",
-    "urn:ngsi-ld:BuildingPart:LAV_12854",
-    "urn:ngsi-ld:BuildingPart:LAV_15145"
-  ]
-}</pre>
-          </div>
-        </div>
       </div>
-    </section>
+    </div>
 
-    <section class="tab-panel" id="findings">
-      <div class="section-label">Synthesis</div>
-      <h2>Findings and proposed improvements</h2>
-      <p class="section-intro">
-        The case study shows that the CSI dataset contains useful geometric information, but its current structure limits direct use in Urban Digital Twin environments.
-      </p>
-
-      <div class="before-after">
-        <div class="compare-box before">
-          <h3>Before: GIS layer structure</h3>
-          <ul>
-            <li>One real building represented as several polygons.</li>
-            <li>Different heights stored separately.</li>
-            <li>No explicit connection between parts.</li>
-            <li>Limited object-level coherence.</li>
-            <li>Useful for mapping, weaker for UDT integration.</li>
-          </ul>
-        </div>
-
-        <div class="compare-box after">
-          <h3>After: FIWARE-inspired structure</h3>
-          <ul>
-            <li>One Building entity.</li>
-            <li>Six connected BuildingPart entities.</li>
-            <li>Height variation preserved.</li>
-            <li>Explicit hasPart relationship.</li>
-            <li>Closer to interoperable Urban Digital Twin logic.</li>
-          </ul>
-        </div>
+    <div class="card">
+      <div class="card-head">SQL validation query</div>
+      <div class="card-body">
+        <pre class="sql-box">SELECT 
+  b.building_id,
+  b.name,
+  p.part_id,
+  p.height_m,
+  p.part_type,
+  p.lod_potential,
+  p.ngsi_entity
+FROM building b
+JOIN building_part p
+ON b.building_id = p.building_id
+WHERE b.building_id = 'Lavazza_B1'
+ORDER BY p.height_m DESC;</pre>
       </div>
-
-      <div class="card" style="margin-top:22px;">
-        <div class="card-head">Final interpretation</div>
-        <div class="card-body">
-          <p>
-            The dataset is geometrically rich but structurally fragmented. It can support basic 3D visualization, but it is not directly organized for Urban Digital Twin integration.
-          </p>
-          <p>
-            The FIWARE-oriented restructuring improves the dataset by preserving the original geometry while introducing explicit entities, attributes, and relationships.
-          </p>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <div class="footer">
-    Master’s thesis project — Urban data quality, 3D city modelling, and Urban Digital Twin readiness.
+    </div>
   </div>
 
-  <script>
-    const buttons = document.querySelectorAll(".tab-btn");
-    const panels = document.querySelectorAll(".tab-panel");
+  <div class="card" style="margin-top:22px;">
+    <div class="card-head">Lavazza BuildingPart records</div>
+    <div class="card-body table-wrap">
+      <table>
+        <tr>
+          <th>Part ID</th>
+          <th>Height</th>
+          <th>Floors</th>
+          <th>Part type</th>
+          <th>LoD potential</th>
+        </tr>
+        <tr><td>LAV_7341</td><td>30.64 m</td><td>7</td><td>tower</td><td>LoD1-like</td></tr>
+        <tr><td>LAV_15145</td><td>14.63 m</td><td>4</td><td>main_body</td><td>LoD1-like</td></tr>
+        <tr><td>LAV_1082</td><td>12.74 m</td><td>2</td><td>block</td><td>LoD1-like</td></tr>
+        <tr><td>LAV_1081</td><td>9.39 m</td><td>3</td><td>block</td><td>LoD1-like</td></tr>
+        <tr><td>LAV_12854</td><td>5.79 m</td><td>2</td><td>connector</td><td>LoD1-like</td></tr>
+        <tr><td>LAV_7342</td><td>5.20 m</td><td>1</td><td>low_block</td><td>LoD1-like</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
 
-    buttons.forEach(button => {
-      button.addEventListener("click", () => {
-        buttons.forEach(btn => btn.classList.remove("active"));
-        panels.forEach(panel => panel.classList.remove("active"));
-        button.classList.add("active");
-        document.getElementById(button.dataset.tab).classList.add("active");
+<section class="tab-panel" id="outputs">
+  <div class="section-label">Visual and interactive outputs</div>
+  <h2>Maps and clickable 3D model</h2>
+  <p class="section-intro">
+    These outputs show the spatial result of the workflow: district-scale visualization, building-scale reconstruction, and interactive 3D inspection of reconstructed components.
+  </p>
 
-        setTimeout(() => {
-          if (button.dataset.tab === "overview") {
-            Plotly.Plots.resize("chart-readiness");
-            Plotly.Plots.resize("chart-layers");
-          }
-        }, 100);
-      });
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-head">Circoscrizione 7 — 2D map</div>
+      <iframe class="small-frame" src="interactive/c7_map/index.html"></iframe>
+      <div class="map-note">District-scale map used to communicate the analytical area and building dataset structure.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">Circoscrizione 7 — 3D scene</div>
+      <iframe class="small-frame" src="interactive/c7_3d_scene/index.html"></iframe>
+      <div class="map-note">District-scale 3D visualization used to inspect height variation and extrusion potential.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">Lavazza — reconstructed 2D BuildingParts</div>
+      <iframe src="interactive/lavazza_map/index.html"></iframe>
+      <div class="map-note">2D reconstruction of the Lavazza object as multiple BuildingPart components linked to one parent Building.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">Lavazza — clickable 3D BuildingPart model</div>
+      <iframe src="interactive/lavazza_3d_scene/index.html"></iframe>
+      <div class="map-note">Interactive 3D output exported with Qgis2threejs, showing components extruded by height_m and inspectable by attributes.</div>
+    </div>
+  </div>
+</section>
+
+<section class="tab-panel" id="fiware">
+  <div class="section-label">Interoperability output</div>
+  <h2>GeoJSON and NGSI-LD-style interpretation</h2>
+  <p class="section-intro">
+    The reconstructed output can be exported as GeoJSON for web-ready spatial representation and as NGSI-LD-style JSON to demonstrate future FIWARE-compatible entity logic.
+  </p>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-head">Building / BuildingPart entity model</div>
+      <div class="card-body">
+        <div class="entity-diagram">
+          <div class="entity-main">Building<br>Lavazza_B1</div>
+          <div class="entity-parts">
+            <div class="entity-part">LAV_1081<br>9.39 m<br>block</div>
+            <div class="entity-part">LAV_1082<br>12.74 m<br>block</div>
+            <div class="entity-part tower">LAV_7341<br>30.64 m<br>tower</div>
+            <div class="entity-part">LAV_7342<br>5.20 m<br>low_block</div>
+            <div class="entity-part">LAV_12854<br>5.79 m<br>connector</div>
+            <div class="entity-part">LAV_15145<br>14.63 m<br>main_body</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">NGSI-LD-style Building entity</div>
+      <div class="card-body">
+        <pre class="code-block">{
+  "id": "urn:ngsi-ld:Building:Lavazza_B1",
+  "type": "Building",
+  "name": {
+    "type": "Property",
+    "value": "Lavazza Building"
+  },
+  "buildingUse": {
+    "type": "Property",
+    "value": "office / commercial"
+  },
+  "hasPart": {
+    "type": "Relationship",
+    "object": [
+      "urn:ngsi-ld:BuildingPart:LAV_1081",
+      "urn:ngsi-ld:BuildingPart:LAV_1082",
+      "urn:ngsi-ld:BuildingPart:LAV_7341",
+      "urn:ngsi-ld:BuildingPart:LAV_7342",
+      "urn:ngsi-ld:BuildingPart:LAV_12854",
+      "urn:ngsi-ld:BuildingPart:LAV_15145"
+    ]
+  }
+}</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tab-panel" id="findings">
+  <div class="section-label">Synthesis</div>
+  <h2>Findings and proposed improvements</h2>
+  <p class="section-intro">
+    The thesis shows that the dataset has clear potential, but it requires evaluation, reconstruction, and database-oriented structuring before it can support standard-oriented reuse.
+  </p>
+
+  <div class="before-after">
+    <div class="compare-box before">
+      <h3>Before: municipal GIS structure</h3>
+      <ul>
+        <li>Layer-based organization.</li>
+        <li>Fragmented building representation.</li>
+        <li>Incomplete height information for some features.</li>
+        <li>Weak parent-child object relationships.</li>
+        <li>No ready database schema for UDT-oriented use.</li>
+      </ul>
+    </div>
+
+    <div class="compare-box after">
+      <h3>After: reconstructed output</h3>
+      <ul>
+        <li>One parent Building object.</li>
+        <li>Six linked BuildingPart records.</li>
+        <li>PostGIS relational storage.</li>
+        <li>SQL validation and queryability.</li>
+        <li>GeoJSON / NGSI-LD-style export and clickable 3D visualization.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:22px;">
+    <div class="card-head">PostGIS-based interactive 3D reconstruction of Lavazza</div>
+    <iframe class="large-frame" src="interactive/lavazza_postgis_3d/index.html"></iframe>
+    <div class="map-note">
+      Interactive 3D model generated from the reconstructed PostGIS BuildingPart layer. Each component remains clickable and linked to attributes such as part_id, height_m, part_type, ngsi_entity, relationship, and partOf.
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:22px;">
+    <div class="card-head">Final interpretation</div>
+    <div class="card-body">
+      <p>
+        The final prototype demonstrates that fragmented GIS building geometries can be transformed into a structured and queryable object model. This supports the transition from conventional GIS layers toward standard-oriented 3D city modelling and future Urban Digital Twin interoperability.
+      </p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div class="footer">
+  Master’s thesis project — GIS data quality, 3D city modelling, PostGIS representation, and Urban Digital Twin readiness.
+</div>
+
+<script>
+  const buttons = document.querySelectorAll(".tab-btn");
+  const panels = document.querySelectorAll(".tab-panel");
+
+  buttons.forEach(button => {
+    button.addEventListener("click", () => {
+      buttons.forEach(btn => btn.classList.remove("active"));
+      panels.forEach(panel => panel.classList.remove("active"));
+
+      button.classList.add("active");
+      document.getElementById(button.dataset.tab).classList.add("active");
+
+      setTimeout(() => {
+        if (button.dataset.tab === "overview") {
+          Plotly.Plots.resize("chart-readiness");
+          Plotly.Plots.resize("chart-layers");
+        }
+      }, 120);
     });
+  });
 
-    window.addEventListener("load", function () {
-      Plotly.newPlot(
-        "chart-readiness",
-        [{
-          x: ["Usable height", "Missing / zero height"],
-          y: [81, 19],
-          type: "bar",
-          marker: { color: ["#2563eb", "#94a3b8"] },
-          text: ["81%", "19%"],
-          textposition: "outside"
-        }],
-        {
-          yaxis: { title: "Percentage (%)", range: [0, 100] },
-          margin: { t: 25, l: 60, r: 20, b: 60 },
-          plot_bgcolor: "#ffffff",
-          paper_bgcolor: "#ffffff",
-          font: { family: "Arial", size: 12, color: "#0f172a" }
-        },
-        { responsive: true, displaylogo: false }
-      );
+  window.addEventListener("load", function () {
+    Plotly.newPlot(
+      "chart-readiness",
+      [{
+        x:["Usable height","Missing / zero height"],
+        y:[81,19],
+        type:"bar",
+        marker:{color:["#2563eb","#94a3b8"]},
+        text:["81%","19%"],
+        textposition:"outside"
+      }],
+      {
+        yaxis:{title:"Percentage (%)",range:[0,100]},
+        margin:{t:25,l:60,r:20,b:60},
+        plot_bgcolor:"#ffffff",
+        paper_bgcolor:"#ffffff",
+        font:{family:"Arial",size:12,color:"#0f172a"}
+      },
+      {responsive:true,displaylogo:false}
+    );
 
-      Plotly.newPlot(
-        "chart-layers",
-        [{
-          x: [
-            "UNITA_VOLUMETRICA",
-            "EDIFICIO",
-            "EDIFICIO_MINORE",
-            "ELEMENTO_DI_COPERTURA",
-            "PARTICOLARE_ARCHITETTONICO"
-          ],
-          y: [17565, 5221, 3200, 3173, 2100],
-          type: "bar",
-          marker: { color: ["#2563eb", "#06b6d4", "#7c3aed", "#16a34a", "#f59e0b"] }
-        }],
-        {
-          yaxis: { title: "Number of features" },
-          margin: { t: 25, l: 65, r: 20, b: 125 },
-          plot_bgcolor: "#ffffff",
-          paper_bgcolor: "#ffffff",
-          font: { family: "Arial", size: 12, color: "#0f172a" }
-        },
-        { responsive: true, displaylogo: false }
-      );
-    });
-  </script>
+    Plotly.newPlot(
+      "chart-layers",
+      [{
+        x:[
+          "UNITA_VOLUMETRICA",
+          "EDIFICIO",
+          "EDIFICIO_MINORE",
+          "ELEMENTO_DI_COPERTURA",
+          "PARTICOLARE_ARCHITETTONICO"
+        ],
+        y:[17565,5221,3200,3173,2100],
+        type:"bar",
+        marker:{color:["#2563eb","#06b6d4","#7c3aed","#16a34a","#f59e0b"]}
+      }],
+      {
+        yaxis:{title:"Number of features"},
+        margin:{t:25,l:65,r:20,b:125},
+        plot_bgcolor:"#ffffff",
+        paper_bgcolor:"#ffffff",
+        font:{family:"Arial",size:12,color:"#0f172a"}
+      },
+      {responsive:true,displaylogo:false}
+    );
+  });
+</script>
 
 </body>
 </html>
